@@ -7,17 +7,15 @@ import java.util.Scanner;
         public class Main {
             static String[] products = {"Хлеб", "Яблоки", "Молоко", "Мороженое"};
             static int[] prices = {100, 200, 300, 450};
-            static  File saveFile = new File("basket.txt");
-            public static void main(String[] args) throws FileNotFoundException {
+            static  File saveFile = new File("basket.bin");
+            public static void main(String[] args) throws Exception {
 
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Список возможных товаров для покупки");
-             //   String[] products = {"Хлеб", "Яблоки", "Молоко", "Мороженое"};
-            //    int[] prices = {100, 200, 300, 450};
-            //    int[] productPrice = new int[4];
+
                 Basket basket = null;
                 if (saveFile.exists()) {
-                    basket = Basket.loadFromTxtFile(saveFile);
+                    basket = Basket.loadFromBinFile(saveFile);
                 } else {  basket = new Basket(products, prices);
                 }
 
@@ -38,7 +36,7 @@ import java.util.Scanner;
                     int productNumber = Integer.parseInt(parts[0]) - 1;
                     int productCount = Integer.parseInt(parts[1]);
                     basket.addToCart(productNumber, productCount);
-                    basket.saveTxt(saveFile);
+                    basket.saveBin(saveFile);
                 }
                 basket.printCart();
             }
