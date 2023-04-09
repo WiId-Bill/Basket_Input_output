@@ -87,17 +87,14 @@ public class Basket {
     }
 
 
-    public static Basket loadFromJSONFile(File File)  {
+    public static Basket loadFromJSONFile(File File) throws IOException {
         Basket basket = null;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(File))){
             String productsStr = bufferedReader.readLine();
 
             Gson gson = new Gson();
             basket = gson.fromJson(productsStr.toString(), Basket.class);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+           }
         return basket;
     }
 }
