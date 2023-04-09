@@ -2,3 +2,9 @@
 .idea
 out
 target
+file.txt
+basket.bin
+basket.json
+log.csv
+client.csv
+basket.txt
