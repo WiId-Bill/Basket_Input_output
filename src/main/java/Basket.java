@@ -7,6 +7,18 @@ public class Basket {
     private int[] prices;
     private int[] productPrice;
 
+    public String[] getProducts() {
+        return products;
+    }
+
+    public int[] getPrices() {
+        return prices;
+    }
+
+    public int[] getProductPrice() {
+        return productPrice;
+    }
+
     public Basket(){
 
     }
